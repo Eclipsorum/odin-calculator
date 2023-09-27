@@ -5,7 +5,6 @@ body{
 .calc-container {
     border: solid grey 3px;
     border-bottom: solid grey 7px;
-    border-bottom-left-radius: 20%;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
     margin: auto;

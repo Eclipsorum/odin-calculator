@@ -9,6 +9,9 @@ btn.forEach(btn => btn.addEventListener("click", () => {
         const calc = new Calculator();
         displayValue.textContent = calc.operate(displayValue.textContent);
     }
+    else if(btn.textContent == '\u232B') {
+        displayValue.textContent = displayValue.textContent.slice(0,displayValue.textContent.length-1);
+    }
     else {
         if (/[0-9]/.test(btn.textContent)) {
             displayValue.textContent += btn.textContent;
