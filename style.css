@@ -3,7 +3,11 @@ body{
 }
 
 .calc-container {
-    border: solid whitesmoke 5px;
+    border: solid grey 3px;
+    border-bottom: solid grey 7px;
+    border-bottom-left-radius: 20%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
     margin: auto;
     width: 300px;    
     box-shadow: 10px 5px 5px black;
@@ -11,11 +15,20 @@ body{
 
 .display {
     border: solid gray 5px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 40%;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    margin: 3px;
+    background-color: antiquewhite;
     height: 50px;
     flex: 1;
     display:flex;
     align-items: center;
+}
 
+.display-value {
+    margin: 10px;
 }
 
 .row {
@@ -28,10 +41,22 @@ body{
     display:flex;
 }
 
-.column.btn-equal button{
+.column.btn-equal button {
     background-color: red;
     color: aliceblue;
     font-size: 24px;
+}
+
+.column.btn-equal button:hover {
+    background-color: #971616;
+}
+
+.btn-operator {
+    background-color: azure;
+}
+
+.btn-operator:hover {
+    background-color: rgb(168, 235, 235);
 }
 
 button {
