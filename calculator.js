@@ -31,6 +31,13 @@ function inputValue(content) {
         case '\u232B':
             displayValue.textContent = displayValue.textContent.slice(0,displayValue.textContent.length-1);
             break;
+        
+        case '.':
+            const splitDisplay = displayValue.textContent.split(/[/*-+]/);
+            if(!(splitDisplay[splitDisplay.length-1].includes('.')) && splitDisplay[splitDisplay.length-1] != '') {
+                displayValue.textContent += content;
+            }           
+            break;
 
         case '=':
             if(!(document.querySelector('.history-container'))) {
