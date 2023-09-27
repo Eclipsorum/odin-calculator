@@ -58,6 +58,8 @@ function inputValue(content) {
                 historyDiv.appendChild(historyClear);  
                 historyDiv.appendChild(historyItems);        
             }
+            const strSplit = displayValue.textContent.split(/([-+/*])+/);
+            if(/[0-9]/.test(strSplit[strSplit.length-1])) {
             const calc = new Calculator();
             const historyDiv = document.querySelector('.history-items');
             const para = document.createElement('p');
@@ -66,6 +68,7 @@ function inputValue(content) {
             displayValue.textContent = calc.operate(displayValue.textContent);
             para.textContent = paraStr + ' = ' + displayValue.textContent;
             historyDiv.appendChild(para);
+            }
             break;
 
         default:
