@@ -65,15 +65,16 @@ h1 {
 }
 
 .btn-operator {
-    background-color: azure;
+    background-color: hsl(180, 75%, 70%);
 }
 
 .btn-operator:hover {
-    background-color: rgb(168, 235, 235);
+    background-color: rgb(132, 196, 196);
 }
 
 button {
     margin: 4px;
     flex: 1;
     height: 50px;
+    font-weight: bold;
 }
