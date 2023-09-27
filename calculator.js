@@ -2,30 +2,52 @@ const btn = document.querySelectorAll('button');
 const displayValue = document.querySelector('.display-value');
 
 btn.forEach(btn => btn.addEventListener("click", () => {
-    if(btn.textContent == 'C') {
+    inputValue(btn.textContent);
+}));
+
+window.addEventListener("keydown", keyboardInput);
+
+function keyboardInput(e) {
+    const keys = document.querySelectorAll(`.key`);
+    if(e.key == 'Backspace') {
+        inputValue('\u232B');
+    }
+    keys.forEach(key => {
+        if(e.key == key.textContent) {
+            inputValue(key.textContent);
+        }        
+    });   
+};
+
+function inputValue(content) {
+    if(content == 'C') {
         displayValue.textContent = '';
     }
-    else if(btn.textContent == '=') {
+    else if(content == '.') {
+        const splitDisplay = displayValue.textContent.split(/[/*-+]/);
+        if(!(splitDisplay[splitDisplay.length-1].includes('.')) && splitDisplay[splitDisplay.length-1] != '') {
+            displayValue.textContent += content;
+        }
+    }
+    else if(content == '=') {
         const calc = new Calculator();
         displayValue.textContent = calc.operate(displayValue.textContent);
     }
-    else if(btn.textContent == '\u232B') {
+    else if(content == '\u232B') {
         displayValue.textContent = displayValue.textContent.slice(0,displayValue.textContent.length-1);
     }
     else {
-        if (/[0-9]/.test(btn.textContent)) {
-            displayValue.textContent += btn.textContent;
+        if (/[0-9]/.test(content)) {
+            displayValue.textContent += content;
         }
+        else if(!(/[0-9]/.test(displayValue.textContent.slice(-1)))) {
+            displayValue.textContent = displayValue.textContent.slice(0,displayValue.textContent.length-1) + content;
+            }
         else {
-            if(!(/[0-9]/.test(displayValue.textContent.slice(-1)))) {
-                displayValue.textContent = displayValue.textContent.slice(0,displayValue.textContent.length-1) + btn.textContent;
-            }
-            else {
-                displayValue.textContent += btn.textContent;
-            }
-        }
+            displayValue.textContent += content;
+        }        
     }
-}))
+};
 
 function Calculator() {
     this.calculate = {

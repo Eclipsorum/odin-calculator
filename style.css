@@ -1,5 +1,7 @@
 body{
     padding-top: 200px;
+    display:flex;
+    justify-content: center;
 }
 
 .calc-container {
@@ -7,7 +9,6 @@ body{
     border-bottom: solid grey 7px;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
-    margin: auto;
     width: 300px;    
     box-shadow: 10px 5px 5px black;
 }
