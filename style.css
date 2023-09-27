@@ -3,7 +3,6 @@ body{
 }
 
 .calc-container {
-    height: 300px;
     border: solid whitesmoke 5px;
     margin: auto;
     width: 300px;    
@@ -27,6 +26,12 @@ body{
 .column {
     flex: 1;
     display:flex;
+}
+
+.column.btn-equal button{
+    background-color: red;
+    color: aliceblue;
+    font-size: 24px;
 }
 
 button {

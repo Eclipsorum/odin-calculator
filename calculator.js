@@ -37,20 +37,13 @@ function Calculator() {
         while (strSplit.some(item => /[/*]/.test(item))) {
            const index = strSplit.findIndex(item => /[/*]/.test(item));
            const eval = this.calculate[strSplit[index]](Number(strSplit[index-1]), Number(strSplit[index+1]));
-           strSplit.splice(index-1,3,eval);
-           console.log(strSplit);
+           strSplit.splice(index-1,3,Number.isInteger(eval) ? eval : Number.parseFloat(eval).toFixed(3));
         }
         while (strSplit.some(item => item == '+' || item == '-')) {
             const index = strSplit.findIndex(item => item == '+' || item == '-');
-            console.log(strSplit[index]);
             const eval = this.calculate[strSplit[index]](Number(strSplit[index-1]), Number(strSplit[index+1]));
-            strSplit.splice(index-1,3,eval);
-            console.log(strSplit);
-
+            strSplit.splice(index-1,3,Number.isInteger(eval) ? eval : Number.parseFloat(eval).toFixed(3));
          }
         return strSplit[0];
     };
 };
-//2+3/3-6*6*3+3
-2 + 1 - 36 * 3 + 3
-2+1-105
